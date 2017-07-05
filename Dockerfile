@@ -1,4 +1,4 @@
-# Gatling is a highly capable load testing tool.
+# Gatling  is Open-Source Load & Performance Testing Tool For Web Applications
 #
 # Documentation: http://gatling.io/docs
 # Cheat sheet: http://gatling.io/#/cheat-sheet/
