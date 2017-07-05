@@ -28,25 +28,27 @@ We will create files and folders as below:
 
   * Prepare folder structure
 
-  `$ cd your/work/folder`
+    `$ cd your/work/folder`
 
-  `$ echo "FROM tsamaya/docker-gatlingio:latest" > Dockerfile`
+    `$ echo "FROM tsamaya/docker-gatlingio:latest" > Dockerfile`
 
-  `$ mkdir -p conf results user-files/simulations user-files/data`
+    `$ mkdir -p conf results user-files/simulations user-files/data`
 
-  `$ docker build -t gatling:local .`
+    `$ docker build -t gatling:local .`
 
   * Create you Simulation file in `user-files/simulations`. Check the [Sample](#Sample simulation) below.
 
   * Now you can run your simulation in a limited interactive with :
 
-  `$ docker run -it --rm -v ``pwd``/conf:/opt/gatling/conf -v ``pwd``/user-files:/opt/gatling/user-files -v ``pwd``/results:/opt/gatling/results -e JAVA_OPTS= gatling:local`
+    `$ docker run -it --rm -v ``pwd``/conf:/opt/gatling/conf -v ``pwd``/user-files:/opt/gatling/user-files -v ``pwd``/results:/opt/gatling/results -e JAVA_OPTS=$JAVA_OPTS gatling:local`
 
   or automatically:
 
-  `$ docker run -it --rm -v ``pwd``/conf:/opt/gatling/conf -v ``pwd``/user-files:/opt/gatling/user-files -v ``pwd``/results:/opt/gatling/results -e JAVA_OPTS= gatling:local -s SampleSimulation`
+    `$ docker run -it --rm -v ``pwd``/conf:/opt/gatling/conf -v ``pwd``/user-files:/opt/gatling/user-files -v ``pwd``/results:/opt/gatling/results -e JAVA_OPTS=$JAVA_OPTS gatling:local -s SampleSimulation`
 
   assuming here taht your scala file is `SampleSimulation.scala`
+
+  Note: you can define `$JAVA_OPTS` for example `$ export JAVA_OPTS="-Dusers=3"`
 
 ## Samples
 
@@ -89,7 +91,7 @@ class SampleSimulation extends Simulation {
 
 ## Credit
 
-I want to thanks
+I want to thank:
 - Denis Vazhenin [@denvazh](https://github.com/denvazh)
 - Grig Gheorghiu [blogger profile](https://www.blogger.com/profile/17863511617654196370)
 for their works that lead to this repo.
